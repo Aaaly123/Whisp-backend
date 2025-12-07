@@ -1,14 +1,23 @@
 package com.example.demo.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class FeedbackRequestDTO {
+
+    @NotNull(message = "Receiver ID is required")
     private Long receiverId;
+
+    @NotBlank(message = "Someone text cannot be empty")
     private String someone_text;
+
+    @NotBlank(message = "Feedback text cannot be empty")
     private String feedback_text;
+
 
     public Long getReceiverId() {
         return receiverId;

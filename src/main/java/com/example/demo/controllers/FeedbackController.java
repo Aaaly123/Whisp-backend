@@ -6,6 +6,7 @@ import com.example.demo.dtos.FeedbackReactionRequestDTO;
 import com.example.demo.dtos.FeedbackRequestDTO;
 import com.example.demo.dtos.MyWallResponseDTO;
 import com.example.demo.services.FeedbackService;
+import jakarta.validation.Valid;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -55,7 +56,7 @@ public class FeedbackController {
     @PostMapping("/write")
     public MyWallResponseDTO writeFeedback(
             @RequestHeader("Authorization") String token,
-            @RequestBody FeedbackRequestDTO feedbackRequestDTO) {
+            @RequestBody @Valid FeedbackRequestDTO feedbackRequestDTO) {
         return feedbackService.writeFeedback(token, feedbackRequestDTO);
     }
 }
