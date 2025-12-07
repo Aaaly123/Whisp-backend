@@ -15,7 +15,7 @@ public class SentimentAnalysisService {
 
     // Use the three-label model
     private static final String MODEL_URL =
-            "https://api-inference.huggingface.co/models/cardiffnlp/twitter-roberta-base-sentiment-latest";
+            "https://router.huggingface.co/models/cardiffnlp/twitter-roberta-base-sentiment-latest";
 
     public SentimentResult analyzeSentiment(String text) {
         try {
