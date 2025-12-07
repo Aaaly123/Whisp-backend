@@ -7,7 +7,6 @@ import com.example.demo.dtos.FeedbackRequestDTO;
 import com.example.demo.dtos.MyWallResponseDTO;
 import com.example.demo.services.FeedbackService;
 import jakarta.validation.Valid;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
