@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.dtos.*;
 import com.example.demo.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,12 +16,12 @@ public class AuthController {
     UserService userService;
 
     @PostMapping("/signup")
-    public UserResponseDTO signUp(@RequestBody UserSignUpRequestDTO userSignUpRequestDTO){
+    public UserResponseDTO signUp(@RequestBody @Valid UserSignUpRequestDTO userSignUpRequestDTO){
         return userService.createUser(userSignUpRequestDTO);
     }
 
     @PostMapping("/signin")
-    public SignInResponseDTO signIn(@RequestBody UserSignInRequestDTO userSignInRequestDTO){
+    public SignInResponseDTO signIn(@RequestBody @Valid UserSignInRequestDTO userSignInRequestDTO){
         return userService.login(userSignInRequestDTO);
     }
 
