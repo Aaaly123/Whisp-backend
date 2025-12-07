@@ -5,6 +5,7 @@ import com.example.demo.dtos.ReceiverProfileResponseDTO;
 import com.example.demo.dtos.UpdatePasswordRequestDTO;
 import com.example.demo.dtos.UserResponseDTO;
 import com.example.demo.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -39,10 +40,14 @@ public class UserController {
     }
 
     @PutMapping("/update-password")
-    public String updatePassword(@RequestBody UpdatePasswordRequestDTO request, Authentication authentication) {
+    public String updatePassword(
+            @Valid @RequestBody UpdatePasswordRequestDTO request,
+            Authentication authentication
+    ) {
         String email = authentication.getName();
         return userService.updateUserPassword(request, email);
     }
+
 
 
     @GetMapping("/receiver/{id}")
