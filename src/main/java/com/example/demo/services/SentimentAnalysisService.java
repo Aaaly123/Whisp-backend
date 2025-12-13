@@ -13,7 +13,7 @@ public class SentimentAnalysisService {
     @Value("${huggingface.api.token}")
     private String huggingFaceToken;
 
-    // Use the three-label model
+    // model-url
     private static final String MODEL_URL =
             "https://router.huggingface.co/models/cardiffnlp/twitter-roberta-base-sentiment-latest";
 
@@ -38,7 +38,7 @@ public class SentimentAnalysisService {
                 return new SentimentResult("neutral", 0.0f);
             }
 
-            System.out.println("🔍 Raw HF response: " + respBody);
+            System.out.println("Raw HF response: " + respBody);
 
             // Example structure: [[{"label":"negative","score":0.02},{"label":"neutral","score":0.15},{"label":"positive","score":0.83}]]
             JSONArray rootArr = new JSONArray(respBody);

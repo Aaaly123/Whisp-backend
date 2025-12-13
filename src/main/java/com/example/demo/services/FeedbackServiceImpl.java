@@ -156,50 +156,6 @@ public class FeedbackServiceImpl implements FeedbackService {
         }).collect(Collectors.toList());
     }
 
-
-//    @Override
-//    public MyWallResponseDTO writeFeedback(String token, FeedbackRequestDTO feedbackRequestDTO) {
-//        if (token.startsWith("Bearer ")) {
-//            token = token.substring(7);
-//        }
-//
-//        // Extract email of logged-in user (writer)
-//        String email = jwtUtil.extractEmail(token);
-//        User writer = userRepository.findByEmail(email).orElseThrow();
-//
-//        // Find receiver by ID
-//        User receiver = userRepository.findById(feedbackRequestDTO.getReceiverId())
-//                .orElseThrow(() -> new RuntimeException("Receiver not found"));
-//
-//        // Create feedback entity
-//        Feedback feedback = new Feedback();
-//        feedback.setWriter(writer);
-//        feedback.setReceiver(receiver);
-//        feedback.setSomeone_text(feedbackRequestDTO.getSomeone_text());
-//        feedback.setFeedback_text(feedbackRequestDTO.getFeedback_text());
-//        feedback.setFeedback_reaction(null); // receiver will add reaction later
-//
-//        // Save to DB
-//        Feedback savedFeedback = feedbackRepository.save(feedback);
-//
-//        // Convert to response DTO
-//        MyWallResponseDTO dto = new MyWallResponseDTO();
-//        dto.setId(savedFeedback.getId());
-//        dto.setReceiver(new UserResponseDTO(
-//                receiver.getId(),
-//                receiver.getName(),
-//                receiver.getEmail(),
-//                receiver.getBio()
-//        ));
-//        dto.setSomeone_text(savedFeedback.getSomeone_text());
-//        dto.setFeedback_text(savedFeedback.getFeedback_text());
-//        dto.setFeedback_reaction(savedFeedback.getFeedback_reaction());
-//        dto.setSentiment_label(savedFeedback.getSentiment_label());
-//
-//        return dto;
-//    }
-
-
     @Override
     public MyWallResponseDTO writeFeedback(String token, FeedbackRequestDTO feedbackRequestDTO) {
         if (token.startsWith("Bearer ")) {
